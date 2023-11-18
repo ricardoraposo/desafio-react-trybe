@@ -1,4 +1,4 @@
-type Type = 'Notícia' | 'Release';
+export type Type = 'Notícia' | 'Release';
 
 export type News = {
   id: number;

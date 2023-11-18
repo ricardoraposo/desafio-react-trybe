@@ -1,11 +1,14 @@
 import { create } from 'zustand';
+import { Type } from '../types';
+
+type Filter = Type | 'recent' | 'favorites';
 
 type Store = {
-  filter: string;
-  setFilter: (value: string) => void;
+  filter: Filter;
+  setFilter: (value: Filter) => void;
 };
 
 export const useNewsStore = create<Store>((set) => ({
   filter: 'recent',
-  setFilter: (value: string) => set(() => ({ filter: value })),
+  setFilter: (value: Filter) => set(() => ({ filter: value })),
 }));

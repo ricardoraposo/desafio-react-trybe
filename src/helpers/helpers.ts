@@ -10,7 +10,12 @@ export const getNews = async (url: string) => {
 
 export const getImage = (item: News) => {
   const images = JSON.parse(item.imagens);
-  return images.image_intro;
+  return images.image_fulltext;
+};
+
+export const getImageAlt = (item: News) => {
+  const images = JSON.parse(item.imagens);
+  return images.image_fulltext_alt;
 };
 
 export const getDaysUntilToday = (date: string) => {

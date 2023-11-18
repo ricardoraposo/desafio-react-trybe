@@ -6,10 +6,13 @@ import { getDaysUntilToday } from '../helpers/helpers';
 
 type Props = {
   item: News;
-  isFavorite: boolean;
+  favorites: News[];
+  toggleFavorites: (item: News) => void;
 };
 
-function NewsCard({ item, isFavorite }: Props) {
+function NewsCard({ item, favorites, toggleFavorites }: Props) {
+  const checkFavorite = (id: number) => !!favorites.find((news) => news.id === id);
+
   return (
     <div
       className="pt-10 pb-4 px-5 bg-white w-full h-96 shadow-lg
@@ -24,11 +27,16 @@ function NewsCard({ item, isFavorite }: Props) {
           <NewsButton path={ item.link } />
         </div>
       </div>
-      <img
-        src={ isFavorite ? RedHeart : BlankHeart }
-        alt="favorite heart"
-        className="w-6 fill-white self-end"
-      />
+      <button
+        className="self-end"
+        onClick={ () => toggleFavorites(item) }
+      >
+        <img
+          src={ checkFavorite(item.id) ? RedHeart : BlankHeart }
+          alt="favorite heart"
+          className="w-6"
+        />
+      </button>
     </div>
   );
 }

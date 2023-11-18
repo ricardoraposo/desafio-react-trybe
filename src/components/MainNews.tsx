@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getDaysUntilToday, getImage, getNews } from '../helpers/helpers';
+import { getDaysUntilToday, getImage, getImageAlt, getNews } from '../helpers/helpers';
 import { getImageUrl, newsByQntUrl } from '../helpers/endpoints';
 import { News } from '../types';
 import NewsButton from './NewsButton';
@@ -23,7 +23,7 @@ function MainNews() {
         <div className="md:h-full md:w-1/2 rounded-md overflow-hidden shadow-md">
           <img
             src={ getImageUrl(getImage(data[0])) }
-            alt="article banner"
+            alt={ getImageAlt(data[0]) }
             className="w-full"
           />
         </div>
