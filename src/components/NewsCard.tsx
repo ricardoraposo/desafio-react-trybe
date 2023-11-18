@@ -1,6 +1,8 @@
 import { News } from '../types';
 import BlankHeart from '../assets/blankHeart.svg';
 import RedHeart from '../assets/redHeart.svg';
+import NewsButton from './NewsButton';
+import { getDaysUntilToday } from '../helpers/helpers';
 
 type Props = {
   item: News;
@@ -18,12 +20,8 @@ function NewsCard({ item, isFavorite }: Props) {
       <div className="flex flex-col gap-4">
         <p className="font-article text-justify">{item.introducao}</p>
         <div className="w-full flex justify-between items-center">
-          <p>{item.data_publicacao}</p>
-          <button
-            className="font-poppins font-bold bg-accent-green py-3 px-5 rounded-lg"
-          >
-            Leia a notícia aqui
-          </button>
+          <p className="font-poppins">{getDaysUntilToday(item.data_publicacao)}</p>
+          <NewsButton path={ item.link } />
         </div>
       </div>
       <img

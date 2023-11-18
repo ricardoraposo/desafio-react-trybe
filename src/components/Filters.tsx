@@ -7,7 +7,7 @@ function Filters() {
   return (
     <div
       className="w-screen font-poppins text-sm font-semibold bg-white py-4 px-6 flex gap-4
-      shadow-sm md:w-full md:text-base md:mt-4"
+      shadow-sm md:w-full md:text-base md:mt-16"
     >
       <div>
         <button onClick={ () => setFilter('recent') }> Mais recentes </button>
