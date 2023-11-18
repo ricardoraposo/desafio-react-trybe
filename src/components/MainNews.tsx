@@ -28,11 +28,11 @@ function MainNews() {
           />
         </div>
       )}
-      <div className="md:h-full md:w-1/2 lg:px-20">
+      <div className="md:h-full md:w-1/2 xl:px-20">
         <p className="font-filter font-semibold text-accent-red pt-5 pb-1">
           Notícia mais recente
         </p>
-        <div className="font-title text-2xl pb-2">
+        <div className="font-title text-4xl pb-2">
           {data && data[0].titulo}
         </div>
         <p className="font-poppins py-2 text-justify">
