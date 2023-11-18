@@ -15,9 +15,9 @@ function NewsCard({ item, favorites, toggleFavorites }: Props) {
 
   return (
     <div
-      className="pt-10 pb-4 px-5 bg-white w-full h-96 shadow-lg
+      className="pt-10 pb-4 px-5 bg-white w-full h-full shadow-lg
       flex flex-col justify-between gap-2 rounded-md
-      lg:w-[500px]"
+      lg:w-[500px] lg:h-96"
     >
       <p className="font-title text-lg">{item.titulo}</p>
       <div className="flex flex-col gap-4">

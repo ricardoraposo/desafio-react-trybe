@@ -6,14 +6,13 @@ import NewsCard from './NewsCard';
 import { useNewsStore } from '../store/store';
 import useLocalStorage from '../hooks/useLocalStorage';
 
-const url = newsByQntUrl(10);
-
 function News() {
+  let qnt = 10;
   const filter = useNewsStore((state) => state.filter);
   const [favorites, setFavorites] = useLocalStorage<NewsType[]>('favoriteNews', []);
-  const { data, isLoading } = useQuery<NewsType[]>({
+  const { data, isLoading, refetch } = useQuery<NewsType[]>({
     queryKey: ['news'],
-    queryFn: () => getNews(url),
+    queryFn: () => getNews(newsByQntUrl(qnt)),
   });
 
   const toggleFavorites = (item: NewsType) => {
@@ -24,6 +23,16 @@ function News() {
       setFavorites([...favorites, item]);
     }
   };
+
+  const handleScroll = () => {
+    const { scrollHeight, clientHeight, scrollTop } = document.documentElement;
+    if (filter !== 'favorites' && (scrollTop + clientHeight + 1 >= scrollHeight)) {
+      qnt += 10;
+      refetch();
+    }
+  };
+
+  window.addEventListener('scroll', handleScroll);
 
   if (isLoading) return <p>carregando...</p>;
 
