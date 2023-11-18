@@ -1,14 +1,21 @@
-import { Route, Routes } from 'react-router-dom';
-import Initial from './pages/Initial';
-import Counter from './pages/Counter';
-import './App.css';
+import Filters from './components/Filters';
+import Header from './components/Header';
+import MainNews from './components/MainNews';
+import News from './components/News';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={ <Initial /> } />
-      <Route path="/counter" element={ <Counter /> } />
-    </Routes>
+    <div className="w-screen">
+      <Header />
+      <div
+        className="w-11/12  mx-auto flex flex-col items-center
+        md:w-4/5"
+      >
+        <MainNews />
+        <Filters />
+        <News />
+      </div>
+    </div>
   );
 }
 
