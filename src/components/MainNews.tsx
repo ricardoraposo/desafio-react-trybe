@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { getImage, getNews } from '../helpers/helpers';
+import { getDaysUntilToday, getImage, getNews } from '../helpers/helpers';
 import { getImageUrl, newsByQntUrl } from '../helpers/endpoints';
 import { News } from '../types';
+import NewsButton from './NewsButton';
 
 const url = newsByQntUrl(10);
 
@@ -37,6 +38,17 @@ function MainNews() {
         <p className="font-poppins py-2 text-justify">
           {data && data[0].introducao}
         </p>
+        <div className="flex flex-col gap-4">
+          {data && (
+            <p className="font-article text-justify">{data[0].introducao}</p>
+          )}
+          <div className="w-full flex justify-between items-center">
+            {data && (
+              <p className="font-poppins">{getDaysUntilToday(data[0].data_publicacao)}</p>
+            )}
+            <NewsButton path={ data ? data[0].link : '' } />
+          </div>
+        </div>
       </div>
     </div>
   );
