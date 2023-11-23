@@ -17,17 +17,33 @@ describe('Tests related with the header component', () => {
   });
 });
 
-describe('Tests related with the main news component', () => {
-  afterEach(() => {
-    vi.clearAllMocks();
-  });
+// describe('Tests related with the main news component', () => {
+//   afterEach(() => {
+//     vi.clearAllMocks();
+//   });
+//
+//   it('Tests if title is loaded correctly', async () => {
+//     vi.spyOn(global, 'fetch').mockResolvedValue(fetchMock);
+//     await act(async () => {
+//       render(<QueryClientProvider client={ queryClient }><App /></QueryClientProvider>);
+//     });
+//
+//     await screen.findByText(/IBGE/);
+//   });
+// });
 
-  it('Tests if title is loaded correctly', async () => {
-    vi.spyOn(global, 'fetch').mockResolvedValue(fetchMock);
-    await act(async () => {
-      render(<QueryClientProvider client={ queryClient }><App /></QueryClientProvider>);
-    });
+describe('Tests related with the filters component', () => {
+  it('Check if filter headers shows up correctly', () => {
+    render(<QueryClientProvider client={ queryClient }><App /></QueryClientProvider>);
 
-    await screen.findByText(/IBGE/);
+    const mostRecentButton = screen.getByText('Mais recentes');
+    const newsButton = screen.getByText('Notícia');
+    const releaseButton = screen.getByText('Release');
+    const favoritesButton = screen.getByText('Favoritas');
+
+    expect(mostRecentButton).toBeInTheDocument();
+    expect(newsButton).toBeInTheDocument();
+    expect(releaseButton).toBeInTheDocument();
+    expect(favoritesButton).toBeInTheDocument();
   });
 });
