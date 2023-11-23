@@ -3,6 +3,7 @@ import { getDaysUntilToday, getImage, getImageAlt, getNews } from '../helpers/he
 import { getImageUrl, newsByQntUrl } from '../helpers/endpoints';
 import { News } from '../types';
 import NewsButton from './NewsButton';
+import Loading from './Loading';
 
 const url = newsByQntUrl(10);
 
@@ -12,7 +13,7 @@ function MainNews() {
     queryFn: () => getNews(url),
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Loading />;
 
   return (
     <div

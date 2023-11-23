@@ -5,6 +5,7 @@ import { News as NewsType } from '../types';
 import NewsCard from './NewsCard';
 import { useNewsStore } from '../store/store';
 import useLocalStorage from '../hooks/useLocalStorage';
+import Loading from './Loading';
 
 function News() {
   let qnt = 10;
@@ -34,7 +35,7 @@ function News() {
 
   window.addEventListener('scroll', handleScroll);
 
-  if (isLoading) return <p>carregando...</p>;
+  if (isLoading) return <Loading />;
 
   if (filter === 'favorites') {
     return (
