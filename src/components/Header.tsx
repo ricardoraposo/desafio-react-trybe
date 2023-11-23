@@ -2,7 +2,7 @@ function Header() {
   return (
     <div
       className="w-screen py-4 pl-2 pr-6 bg-strong-gray gap-2 opacity-90
-      flex justify-between items-center shadow-xl drop-shadow-md
+      flex justify-center items-center shadow-xl drop-shadow-md
       md:py-8 md:justify-around"
     >
       <div
