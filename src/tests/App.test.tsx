@@ -1,11 +1,10 @@
 import { vi } from 'vitest';
 import { act, render, screen } from '@testing-library/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { newsMock } from './mocks/newsMock';
+import newsMock from './mocks/newsMock';
 import App from '../App';
 
 const queryClient = new QueryClient();
-
 const fetchMock = { json: async () => newsMock } as Response;
 
 describe('Tests related with the header component', () => {
@@ -29,8 +28,6 @@ describe('Tests related with the main news component', () => {
       render(<QueryClientProvider client={ queryClient }><App /></QueryClientProvider>);
     });
 
-    const newsTitle = await screen.findByText(/IBGE/);
-
-    expect(newsTitle).toBeInTheDocument();
+    await screen.findByText(/IBGE/);
   });
 });

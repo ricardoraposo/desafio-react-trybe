@@ -1,4 +1,4 @@
-export const newsMock = {
+const newsMock = {
   count: 5510,
   page: 1,
   totalPages: 551,
@@ -149,3 +149,5 @@ export const newsMock = {
     },
   ],
 };
+
+export default newsMock;

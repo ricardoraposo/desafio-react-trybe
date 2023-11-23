@@ -7,10 +7,7 @@ function App() {
   return (
     <div className="w-screen">
       <Header />
-      <div
-        className="w-11/12  mx-auto flex flex-col items-center
-        md:w-4/5"
-      >
+      <div className="w-11/12  mx-auto flex flex-col items-center md:w-4/5">
         <MainNews />
         <Filters />
         <News />
