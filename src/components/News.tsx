@@ -60,21 +60,22 @@ function News() {
       className="mt-8 flex flex-wrap justify-center gap-4
       md:justify-around"
     >
-      {data && (filter === 'recent' ? data.map((item) => (
-        <NewsCard
-          key={ item.id }
-          item={ item }
-          favorites={ favorites }
-          toggleFavorites={ toggleFavorites }
-        />
-      )) : data.filter((item) => item.tipo === filter).map((item) => (
-        <NewsCard
-          key={ item.id }
-          item={ item }
-          favorites={ favorites }
-          toggleFavorites={ toggleFavorites }
-        />
-      )))}
+      {data
+        && (filter === 'recent' ? data.map((item) => (
+          <NewsCard
+            key={ item.id }
+            item={ item }
+            favorites={ favorites }
+            toggleFavorites={ toggleFavorites }
+          />
+        )) : data.filter((item) => item.tipo === filter).map((item) => (
+          <NewsCard
+            key={ item.id }
+            item={ item }
+            favorites={ favorites }
+            toggleFavorites={ toggleFavorites }
+          />
+        )))}
     </div>
   );
 }
